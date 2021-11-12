@@ -33,6 +33,7 @@
     background-color: #0d9547;
     color: white;
     font-weight: 600;
+    border-radius: 4px;
   }
 
   .toolbar img {
@@ -238,6 +239,15 @@
 
   .mat-form-field + .mat-form-field {
   margin-left: 8px;
+}
+
+.mat-expansion-panel-header {
+  background-color: #0d9547;
+  border-radius: 4px;
+}
+
+.mat-expansion-panel-header:hover {
+  background-color: #0d9547;
 }
 
   @media screen and (max-width: 575px) {
