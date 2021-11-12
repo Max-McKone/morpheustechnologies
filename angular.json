@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css",
               "src/assets/font.css"
             ],
@@ -90,6 +91,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -121,6 +123,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "morpheustechnologies"
 }

@@ -1,247 +1,3 @@
-<style>
-  
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  .toolbar {
-    height: 60px;
-    margin: -8px;
-    display: flex;
-    align-items: center;
-    background-color: #0d9547;
-    color: white;
-    font-weight: 600;
-  }
-
-  .toolbar img {
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover {
-    opacity: 0.8;
-  }
-
-  .content {
-    display: flex;
-    margin: 32px auto;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  svg.material-icons {
-    height: 24px;
-    width: auto;
-  }
-
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-  }
-
-  .card svg.material-icons path {
-    fill: #888;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  .card {
-    border-radius: 4px;
-    border: 1px solid #0d9547;
-    background-color: #0d9547;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
-  }
-
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(black, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: #4fa2d6;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
-
-  a,
-  a:visited,
-  a:hover {
-    color: #ffffff;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #4fa2d6;
-  }
-
-  .circle-link {
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    margin: 8px;
-    background-color: white;
-    border: 1px solid #eeeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: 1s ease-out;
-  }
-
-  .circle-link:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-  }
-
-  .github-star-badge {
-    color: #24292e;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
-    border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
-    margin-left: 4px;
-    font-weight: 600;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-  }
-
-  .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
-  }
-
-  .github-star-badge .material-icons {
-    height: 16px;
-    width: 16px;
-    margin-right: 4px;
-  }
-
-  svg#clouds {
-    position: fixed;
-    bottom: -160px;
-    left: -230px;
-    z-index: -10;
-    width: 1920px;
-  }
-
-
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
-
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
-  }
-
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
-  }
-</style>
-
-<div class="background">
-
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
   <a href="/">
@@ -276,30 +32,76 @@
 
   <img width="400" alt="Logo" src="assets/morpheustechnologies_assets/morpheus.png"/>
 
-  <a routerLink="/contact-component" routerLinkActive="active">Contact Us</a>
+  <div class="expansion-panels">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Overview
+        </mat-panel-title>
 
-  <div class="card-container">
-    <a class="card" target="_blank" rel="noopener" href="assets/morpheustechnologies_assets/morpheus technologies - cvaddendum 20070522.pdf">
+      </mat-expansion-panel-header>
+      <p>&nbsp; Oke is responsible for Digital Futures IT infrastructure and application environment. He brings over 20+ years experience to Digital Futures with a proven track record in the design and implementation of technology strategies to support dynamic start-ups and companies experiencing periods of hyper-growth.
+        Oke began his career in software development, working for a number of leading IT consultancies where he specialised in the design propriety applications to support the adoption of new management information and ERP solutions.
+        He has experience working within multiple sectors, leading large delivery and support functions, focused on the management, resilience and performance of enterprise-wide infrastructure and application environments.
+        Oke is technical expert in all aspects of the Microsoft solution stack, with extensive experience supporting the adoption of Azure and implementation of Microsoft 365 to global user groups.
+        He is a devoted father and committed member of his local community, who enjoys Spanish cuisine and hopes to see Tottenham lift some silverware at some point.</p>
+    </mat-expansion-panel>
 
-      <span>Client List</span>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Clients
+        </mat-panel-title>
 
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </a>
+      </mat-expansion-panel-header>
+      <p>Retained:
+        <li>www.thecolumbogroup.com (10 Venues)</li>
+        <li>www.thewrightbrothers.co.uk (6 Sites)</li>
+        <li>www.catherinedeane.com (3 sites in London, Hong Kong and Cape Town)</li>
+        <li>www.solution22.co.uk</li>
+        <li>theumbrellaproject.co.uk/ (2 sites soon to be 3)</li>
+        <li>vennaccounts.com/</li>
+        <li>princeofpeckham.co.uk/</li>
+        <li>www.deluxxe.co.uk/</li>
+        <li>digitalfutures.com/</li>
+        <li>www.tegmjr.com/</li>
+      </p>
 
-    <a class="card" target="_blank" rel="noopener" href="assets/morpheustechnologies_assets/morpheus technologies - flyer 20070125.pdf">
+      <p>
+        Support:
+        <li>www.streetfest.co.uk</li>
+        <li>www.hazrestaurant.co.uk/ (5 Sites in London)</li>
+        <li>www.thephotographyfoundation.com</li>
+        <li>capeesh.co.uk/</li>
+        <li>www.chukuslondon.co.uk/</li>
+        <li>www.globalviewadvisors.com/</li>
+        <li>www.lnepowerltd.com/</li>
+        <li>montesdeli.com/</li>
+        <li>navylondon.com/</li>
+        <li>vinceskitchenonline.com/</li>
+        <li>renowncapital.co.uk/ (New startup)</li>
+        <li>safesecurityltd.com</li>
+        <li>www.urbanexcess.com</li>
+      </p>
+    </mat-expansion-panel>
 
-      <span>Contact Us</span>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Contact Us
+        </mat-panel-title>
 
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
+      </mat-expansion-panel-header>
+      <p>&nbsp; support@morpheustechnologies.com</p>
+      <p>&nbsp; +44 20 3890 9593</p>
+    </mat-expansion-panel>
   </div>
 
   <div class="card-container">
     <p>
-      <img width="200" alt="pic1" src="assets/morpheustechnologies_assets/Oke_Agbeze_037.jpg"/>
-      &nbsp;
-      <img width="200" alt="pic2" src="assets/morpheustechnologies_assets/Oke_Agbeze_043.jpg"/>
-      &nbsp;
-      <img width="200" alt="pic3" src="assets/morpheustechnologies_assets/Oke_Agbeze_056.jpg"/>
+      <img width="150" alt="pic1" src="assets/morpheustechnologies_assets/Oke_Agbeze_037.jpg"/>
+      <img width="150" alt="pic2" src="assets/morpheustechnologies_assets/Oke_Agbeze_043.jpg"/>
+      <img width="150" alt="pic3" src="assets/morpheustechnologies_assets/Oke_Agbeze_056.jpg"/>
     </p>
   </div>
 
@@ -307,7 +109,6 @@
   <footer>
       morpheustechnologies - 2021 &nbsp;
   </footer>
-
 </div>
 
 <router-outlet></router-outlet>
